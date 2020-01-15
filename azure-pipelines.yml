@@ -21,7 +21,11 @@ steps:
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
-
+- task: NexusIqPipelineTask@1
+  inputs:
+    nexusIqService: 'Nexus IQ Server'
+    applicationId: 'HR1'
+    stage: 'Build'
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
@@ -29,11 +33,7 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: NexusIqPipelineTask@1
-  inputs:
-    nexusIqService: 'Nexus IQ Server'
-    applicationId: 'HR1'
-    stage: 'Build'
+
 - task: VSTest@2
   inputs:
     platform: '$(buildPlatform)'
