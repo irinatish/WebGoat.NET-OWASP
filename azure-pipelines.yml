@@ -4,11 +4,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4
 
 trigger:
-- task: NexusIqPipelineTask@1
-  inputs:
-    nexusIqService: 'Nexus IQ Server'
-    applicationId: 'HR1'
-    stage: 'Build'
+
 - master
 
 pool:
@@ -32,6 +28,7 @@ steps:
     msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
 
 - task: VSTest@2
   inputs:
