@@ -29,7 +29,11 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-
+- task: NexusIqPipelineTask@1
+  inputs:
+    nexusIqService: 'Nexus IQ Server'
+    applicationId: 'HR1'
+    stage: 'Build'
 - task: VSTest@2
   inputs:
     platform: '$(buildPlatform)'
