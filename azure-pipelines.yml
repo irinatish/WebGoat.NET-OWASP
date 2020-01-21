@@ -32,7 +32,7 @@ steps:
   inputs:
     nexusIqService: 'Nexus IQ Server'
     applicationId: 'HR1'
-    stage: 'Build'
+    stage: 'Release'
     scanTargets: '**/*.nupkg, Webgoat/Scripts/*.js'
 - task: VSBuild@1
   inputs:
