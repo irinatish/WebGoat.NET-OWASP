@@ -22,6 +22,11 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 
+
+- task: NuGetCommand@2
+  inputs:
+    command: ‘custom’
+    arguments: ‘restore WebGoat/packages.config -PackagesDirectory packages -Verbosity Detailed’
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
